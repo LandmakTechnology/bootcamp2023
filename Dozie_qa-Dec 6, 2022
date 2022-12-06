@@ -1,0 +1,91 @@
+Patience
+
+Dozie
+Position  = Azure DevOps/ES Engineer   
+====================================
+1. How can you deploy 5m files to 500 servers using IaaC  
+       Any Cloud = Terraform/ansible/
+       AWS - CloudFormation & System Manager  
+       AZURE - Resource manager 
+       GCP - Google Cloud Resource
+  dbservers 
+  file
+
+  ansible dbservers -m copy -a "src=tesla.zip dest=/opt" -b 
+- hosts: localhost  
+  tasks:
+  - name: copy file 
+    shell: cp -r *  tesla 
+  - name: create archive 
+    shell: zip tesla tesla.zip 
+- hosts: dbservers  
+  tasks:
+  - name: copy files 
+    copy: 
+      src: tesla.zip 
+      dest: /opt/ 
+2. 
+
+b) they went straight to the role - no time for morning devotion 
+c) What are your experiences with elasticsearch?
+      
+https://www.elastic.co/elasticsearch
+Elasticsearch is the world’s leading free and open search and analytics solution. With an emphasis on speed, scale, and relevance it's transforming how the world uses data.
+
+Elasticsearch is a distributed, RESTful search and analytics engine capable of addressing a growing number of use cases. As the heart of the Elastic Stack, it centrally stores your data for lightning fast search, fine‑tuned relevancy, and powerful analytics that scale with ease.
+
+  amazon.com 
+  google.com = i9 laptop  
+
+d) How would you deploy 5m files to 500 servers using IAAC?
+e) How would these files get to ElasticSearch
+f) How does your company access elasticsearch on the browser?
+
+g) How do you secure your k8s cluster? 
+     namespaces 
+     RBAC [  ]:
+        users / groups / ServiceAccounts
+        Role/RoleBinding  
+        ClusterRole / ClusterRoleBinding  
+     IAM 
+     resourceQuota
+     kuber 
+
+h) What files do you see in your helm chart?
+      values.yml[deploy, pvc, ClusterIP, SA, R/RB, CR,CRB, HPA, ingress ] / 
+      template/deploy.yml, hpa.yml, sa.yml, rbac.yml, ingress.yml, service.yml 
+I) what commands exist in your dockerfile?
+   		FROM 
+   		MAINTAINER
+   		ADD 
+   		COPY 
+   		RUN
+   		EXPOSE 
+   		USER tomcat    
+   		VOLUME 
+   		WORDIR  /usr/local/tomcat 
+   		ENV 
+   		LABELS
+   		CMD 
+   		ARG
+   		ENTRYPOINT 
+
+ docker exec myapp pwd 
+
+       azure  / aws /  private  
+IaaC   RM      CF      vagrant  
+
+J) how do you secure your k8s cluster and network?  
+     Unauthorise access
+
+H) What azure/aws tool do you secure your network with? 
+     vpc / sn / nacl / sg / waf /iam 
+I) walk me through your terraform steps in creating a resource. 
+J) Have you used azure code pipeline
+I) how do you write a groovy custom  line in your declarative pipeline in jenkins?
+
+   pipeline{   
+     environment {
+     AWS_EC2_PRIVATE_KEY=credentials('ec2-private-key') 
+  }
+   }
