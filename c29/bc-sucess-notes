@@ -1,0 +1,78 @@
+Interview 2023:
+1. Please tell me about yourself?
+      My name is Simon, I have over 9 years in IT with 5years working as a  
+      DevOps as DevOps/Cloud/SR/Platform/Kubernetes/Infrastructure Engineer. 
+      I have a strong drive for automation, containers and cloud computing.  
+
+2. What kind project are you managing?
+     Thanks for the question, in my environment I have managed couple of projects  aimed 
+     at achieving:
+        Develops, Tests, Builds, qualification, backup  
+        deploys & monitors applications 
+       Applications are the output from Softwares development 
+     including: 
+       1. Provisioning and configuring Infrastructures and servers in AWS using  
+          terraform and ansible and Jenkins
+          pipeline
+
+       2. Building and maintaining automation pipelines with jenkins for application;
+          build, test and upload artifacts into nexus using Jenkins CI job
+          tools = Jenkins with Git/Github, maven, sonarqube, nexus, Notification 
+
+      3.  Building automation pipelines with jenkins for application deployment
+          using Jenkins with tomcat or Jenkins with docker, dockerhub and Kubernetes 
+
+      4.  Runinng Jenkins continuous monitoring jobs using:
+          Jenkins with Kubernetes, prometheus and grafana
+          Jenkins with Kubernetes, elasticsearch, filebeat and kibana
+
+     5.  My environment is heavy on aws cloud.  
+         Cloud
+    6.   Security is inherent in our environment. CS = continuous security 
+
+    7. I have written and maintained ansible-playbooks used by our Systems admins  
+       for: patching, userMGT, fileMgt, packageMGT. I am  the escalation point if  
+        issues arise while running the ansible-playbooks   
+
+  8. 
+
+web: = 54.221.153.174 key29.pem ubuntu
+ansible: 3.86.243.51 key29.pem" ec2-user
+  sudo useradd ansible  
+  sudo yum -y install python3-pip
+  sudo apt -y install python3-pip
+  pip3 install 
+  pip3 install boto3 botocore --user
+  pip3 install --upgrade requests --user
+appserver: 
+  44.204.71.5 class30key.pem" ec2-user
+jenkins: 3.223.191.159 class30key.pem" ec2-user
+
+
+terraform: 54.82.118.56  key29.pem" ubuntu
+ sh tf.sh 
+ #!/bin/bash
+# install terraform in ubuntu server
+sudo hostnamectl set-hostname tf
+sudo apt install wget unzip -y
+wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
+sudo unzip terraform_0.12.26_linux_amd64.zip -d /usr/local/bin/
+Export terraform binary path temporally
+export PATH=$PATH:/usr/local/bin
+#Add path permanently for current user.By Exporting path in 
+#.bashrc file at end of file.
+ echo  "export PATH=$PATH:/usr/local/bin" >> ~/.bashrc
+# Source .bashrc to reflect for current session
+ source ~/.bashrc
+ terraform -version
+==================================================
+
+
+OPERATORS:
+  nginx-ingress --- ALB/ELB    
+  serviceMesh and Istio 
+  Metric-server
+
+10 micro service enterprise applications
+11 micro-services per application  
+   110 --- 10 pods  = 1100 pods/containers
