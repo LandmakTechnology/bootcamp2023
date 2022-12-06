@@ -1,0 +1,35 @@
+- hosts: localhost  
+  tasks:
+  - name: install package
+    package: 
+      name: ['zip', 'tree', 'nano', 'unzip', 'wget'] 
+      state: latest  
+  - name: copy file 
+    shell: cp -r *  tesla 
+  - name: create archive 
+    shell: zip tesla tesla.zip 
+- hosts: dbservers  
+  tasks:
+  - name: copy files 
+    copy: 
+      src: tesla.zip 
+      dest: /opt/ 
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  labels:
+    name: myapp
+    ns: dev  
+spec:
+  containers:
+  - name: myapp
+    image: <Image>
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: <Port>
