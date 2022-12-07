@@ -74,3 +74,54 @@ I) what commands exist in your dockerfile?
 
        azure  / aws /  private  
 IaaC   RM      CF      vagrant  
+======================================================
+Dec 7, 2022
+===============
+        Tesla 
+Taboh
+1. Tell us about yourself 
+2. Which technologies have you used in your environment
+3. Explain how you apply terraform in your env't
+4. What problems have you encountered applying terraform 
+   in your env't. 
+   permissions/syntax/plugins/wrong version/ 
+   hardcoded values /regions-specification/attaching keys
+   variables: maps/lists/interger/strings/
+
+   Taboh = accessKey/secretAccessKey[EKS EC2READACCESS]
+
+AMI-id ubuntu:
+             us-east-1   us-east-2  us-west-1  
+
+terraform_1.4.0-alpha20221109
+terraform_1.3.6
+terraform_1.3.5
+terraform_1.3.4
+terraform_1.2.4
+terraform_1.2.3
+terraform_0.1.9
+
+5. Explain a project you did which you are proud of??
+
+6. What are you your greatest achievements as a DevOps Engineer
+
+ maven / sonarqube /nexus
+
+Jenkins - kubernetes / 
+Jenkins - ansible / 
+Jenkins - docker / 
+Jenkins - terraform /
+
+Jenkins master slave architecture:
+
+
+
+have the best env't 
+my little experience 
+Details  
+
+
+
+
+
+
