@@ -120,6 +120,111 @@ have the best env't
 my little experience 
 Details  
 
+======================================================================
+Dec 8, 2022                                                       ====:
+======================================================================
+Explain a project you currently manage  
+
+Explain a problem you faced in your project recently
+   deprecated helm chart
+       custom helm charts  
+
+       3rd party helm charts
+   
+    helm install myapp app/app
+        values.yml  template/deploy.yml service.yml ingress.yml hpa.yml sa.yml rbac.yml 
+        helm repo update   
+   kubernetes version = 1.25 / 1.10 / 1.15 1.20[docker]
+   deprecated apiVersion vs kubectlVersion kubeletVersion  
+   docker deprecated
+      nodes[kubelet/kubeproxy/container-runtime=container-D/]
+   expired token []
+   Authentication [kube/config, rbac, ]:
+       developer [ Role/RoleBinding ClusterRole/ClusterRoleBinding] 
+       Role
+   image=Tag/wrongRepo
+   scaling issues
+   Users could not access the application
+   insufficient resources on nodes
+   syntax
+   Pod crashing
+   service not routing traffic to application
+kubectl apply -f app.yml  
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-resource-1
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: springboot.example.com
+    http:
+      paths:
+      # Default Path(/)
+      - backend:
+          serviceName: springboot
+          servicePort: 80
+      - path: /java-web-app
+        backend:
+          serviceName: javawebapp
+          servicePort: 80 
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: pod-reader
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["pods"]
+  verbs: ["get", "watch", "list", "create","delete", "describe"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: superadmin
+rules:
+- apiGroups: ["*"] # "" indicates the core API group
+  resources: ["*"]
+  verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: read-pods
+  namespace: default
+subjects:
+# You can specify more than one "subject"
+- kind: User
+  name: john # "name" is case sensitive
+  apiGroup: rbac.authorization.k8s.io
+- kind: Group
+  name: managers # "name" is case sensitive
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  # "roleRef" specifies the binding to a Role / ClusterRole
+  kind: Role #this must be Role or ClusterRole
+  name: superadmin # this must match the name of the Role or ClusterRole you wish to bind to
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+# This role binding allows "jane" to read pods in the "default" namespace.
+# You need to already have a Role named "pod-reader" in that namespace.
+kind: RoleBinding
+metadata:
+  name: read-pods
+  namespace: default
+subjects:
+# You can specify more than one "subject"
+- kind: User
+  name: jane # "name" is case sensitive
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  # "roleRef" specifies the binding to a Role / ClusterRole
+  kind: Role #this must be Role or ClusterRole
+  name: pod-reader # this must match the name of the Role or ClusterRole you wish to bind to
+  apiGroup: rbac.authorization.k8s.io
 
 
 
